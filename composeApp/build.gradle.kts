@@ -3,9 +3,9 @@ import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSetTree
 
 plugins {
-    alias(libs.plugins.multiplatform)
+    alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.compose.compiler)
-    alias(libs.plugins.compose)
+    alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlinx.serialization)
     alias(libs.plugins.sqlDelight)
@@ -80,11 +80,11 @@ kotlin {
 
 android {
     namespace = "labs.yprsty.mobile"
-    compileSdk = 35
+    compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
-        minSdk = 21
-        targetSdk = 35
+        minSdk = libs.versions.android.minSdk.get().toInt()
+        targetSdk = libs.versions.android.targetSdk.get().toInt()
 
         applicationId = "labs.yprsty.mobile.androidApp"
         versionCode = 1
