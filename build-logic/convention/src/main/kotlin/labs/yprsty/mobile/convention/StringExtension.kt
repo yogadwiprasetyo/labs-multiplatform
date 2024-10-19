@@ -1,5 +1,6 @@
 package labs.yprsty.mobile.convention
 
+private const val DOT = "."
 private const val STRIP = "-"
 private const val UNDER_SCORE = "_"
 
@@ -15,7 +16,7 @@ fun String.getModuleName(
 
     if (moduleName.isBlank()) throw IllegalStateException("Module name cannot be empty! Please provide it to fix.")
 
-    return if (moduleName.contains(separator) && moduleName.contains(STRIP)) {
+    return if (moduleName.contains(DOT) && moduleName.contains(STRIP)) {
         moduleName.replace(STRIP, UNDER_SCORE)
     } else {
         moduleName
