@@ -8,7 +8,7 @@ plugins {
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlinx.serialization)
-    alias(libs.plugins.sqlDelight)
+    alias(libs.plugins.storage.sqlDelight)
     alias(libs.plugins.buildConfig)
 }
 
@@ -38,20 +38,20 @@ kotlin {
             implementation(compose.material3)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
-            implementation(libs.napier)
+            implementation(libs.logger.napier)
             implementation(libs.kotlinx.coroutines.core)
-            implementation(libs.ktor.client.core)
-            implementation(libs.ktor.client.content.negotiation)
-            implementation(libs.ktor.client.serialization)
-            implementation(libs.ktor.client.logging)
+            implementation(libs.network.ktor.client.core)
+            implementation(libs.network.ktor.client.content.negotiation)
+            implementation(libs.network.ktor.client.serialization)
+            implementation(libs.network.ktor.client.logging)
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
             implementation(libs.androidx.navigation.composee)
             implementation(libs.kotlinx.serialization.json)
-            implementation(libs.koin.core)
-            implementation(libs.koin.compose)
-            implementation(libs.coil)
-            implementation(libs.coil.network.ktor)
+            implementation(libs.di.koin.core)
+            implementation(libs.di.koin.compose)
+            implementation(libs.image.coil)
+            implementation(libs.image.coil.network.ktor)
             implementation(libs.kotlinx.datetime)
         }
 
@@ -64,15 +64,15 @@ kotlin {
 
         androidMain.dependencies {
             implementation(compose.uiTooling)
-            implementation(libs.androidx.activityCompose)
+            implementation(libs.androidx.activity.compose)
             implementation(libs.kotlinx.coroutines.android)
-            implementation(libs.ktor.client.okhttp)
-            implementation(libs.sqlDelight.driver.android)
+            implementation(libs.network.ktor.client.okhttp)
+            implementation(libs.storage.sqlDelight.driver.android)
         }
 
         iosMain.dependencies {
-            implementation(libs.ktor.client.darwin)
-            implementation(libs.sqlDelight.driver.native)
+            implementation(libs.network.ktor.client.darwin)
+            implementation(libs.storage.sqlDelight.driver.native)
         }
 
     }

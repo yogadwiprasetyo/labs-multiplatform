@@ -31,9 +31,9 @@ internal fun Project.configureKotlinMultiplatform(
 
     sourceSets.apply {
         commonMain.dependencies {
-            implementation(libs.findLibrary("napier").get())
+            implementation(libs.findLibrary("logger.napier").get())
             implementation(libs.findLibrary("kotlinx.coroutines.core").get())
-            api(libs.findLibrary("koin.core").get())
+            api(libs.findLibrary("di.koin.core").get())
         }
     }
 }
